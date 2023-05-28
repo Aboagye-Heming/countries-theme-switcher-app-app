@@ -1,19 +1,36 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import './App.scss';
+import { Country } from './types';
+import CountryCard from './components/CountryCard';
 import flag from "./assets/images/1280px-Flag_of_Germany.svg.png"
 import expand from './assets/images/expand-more.svg'
 import darkbtn from './assets/images/Group3.svg'
 import search from './assets/images/search.svg'
 
+
 function App() {
+  const [countries, setCountries] = useState<Country[]>([])
+
+
+  const getCountries = () => {
+    fetch("https://restcountries.com/v3.1/all").then((response) => {
+      response.json().then((data) => {
+        setCountries(data)
+      })
+    })
+  }
+  useEffect(() => {
+    getCountries()
+  }, [])
+
   return (
     <div className='hero'>
-        <div className="nav-bar container">
-          <h3>Where in the world?</h3>
-          <div className='dark-mode'>
-            <img src={darkbtn} alt="" />
-            <p>Dark Mode</p></div>
-        </div>
+      <div className="nav-bar container">
+        <h3>Where in the world?</h3>
+        <div className='dark-mode'>
+          <img src={darkbtn} alt="" />
+          <p>Dark Mode</p></div>
+      </div>
       <div className="App container">
         <div className='filter'>
           <div className="search">
@@ -35,61 +52,7 @@ function App() {
           </div>
         </div>
         <div className='countries'>
-          <div className="country">
-            <img className='flag' src={flag} alt="" />
-            <div className='description'>
-              <h4>Germany</h4>
-              <p><span>Population:</span> 81,770,900</p>
-              <p><span>Region:</span> Europe</p>
-              <p><span>Capital:</span> Berlin</p>
-            </div>
-          </div>
-          <div className="country">
-            <img className='flag' src={flag} alt="" />
-            <div className='description'>
-              <h4>Germany</h4>
-              <p><span>Population:</span> 81,770,900</p>
-              <p><span>Region:</span> Europe</p>
-              <p><span>Capital:</span> Berlin</p>
-            </div>
-          </div>
-          <div className="country">
-            <img className='flag' src={flag} alt="" />
-            <div className='description'>
-              <h4>Germany</h4>
-              <p><span>Population:</span> 81,770,900</p>
-              <p><span>Region:</span> Europe</p>
-              <p><span>Capital:</span> Berlin</p>
-            </div>
-          </div>
-          <div className="country">
-            <img className='flag' src={flag} alt="" />
-            <div className='description'>
-              <h4>Germany</h4>
-              <p><span>Population:</span> 81,770,900</p>
-              <p><span>Region:</span> Europe</p>
-              <p><span>Capital:</span> Berlin</p>
-            </div>
-          </div>
-          <div className="country">
-            <img className='flag' src={flag} alt="" />
-            <div className='description'>
-              <h4>Germany</h4>
-              <p><span>Population:</span> 81,770,900</p>
-              <p><span>Region:</span> Europe</p>
-              <p><span>Capital:</span> Berlin</p>
-            </div>
-          </div>
-          <div className="country">
-            <img className='flag' src={flag} alt="" />
-            <div className='description'>
-              <h4>Germany</h4>
-              <p><span>Population:</span> 81,770,900</p>
-              <p><span>Region:</span> Europe</p>
-              <p><span>Capital:</span> Berlin</p>
-            </div>
-          </div>
-
+          {countries.map((country, index) => <CountryCard key={index} country={country} />)}
         </div>
       </div></div>
   );

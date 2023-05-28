@@ -1,0 +1,33 @@
+.country {
+  background: #ffffff;
+  box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
+  border-radius: 5px;
+  margin-bottom: 35px;
+  margin-top: 18px;
+  width: 264px;
+  &__flag {
+    height: 160px;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  &__description {
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #111517;
+    margin-left: 30px;
+    margin-top: 24px;
+  }
+
+  &__description p span {
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #111517;
+  }
+}
