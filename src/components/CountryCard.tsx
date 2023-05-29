@@ -1,6 +1,5 @@
 import { Country } from '../types';
-import '../assets/css/countrycard.scss';
-import flag from "../assets/images/1280px-Flag_of_Germany.svg.png"
+import '../assets/css/csscomponents/countrycard.scss';
 
 interface CountryCardProps {
   country: Country
