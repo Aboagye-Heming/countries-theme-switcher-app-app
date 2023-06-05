@@ -27,8 +27,7 @@ function MainPage() {
             <div className="app container">
                 <div className='filter'>
                     <div className="search">
-                        <img src={search} alt="" />
-                        <input type="text" placeholder='Search for a country…' />
+                        <input type="text" name='search' placeholder='Search for a country...' />
                     </div>
                     <div className='filter-drop'>
                         <div className='filter-label'>

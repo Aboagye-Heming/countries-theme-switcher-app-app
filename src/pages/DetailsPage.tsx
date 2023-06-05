@@ -38,14 +38,14 @@ function DetailsPage() {
                 <div className='details-main-info'>
                     <h3>{country?.name?.official}</h3>
                     <div className='details-info'>
-                        <div>
+                        <div className='info-a'>
                             <p>Native Name: <span>{country?.name?.nativeName?.ell?.official}</span> </p>
                             <p>Population: <span> {country?.population}</span></p>
                             <p>Region: <span>{country?.region}</span></p>
                             <p>Sub Region: <span> {country?.subregion}</span></p>
                             <p>Capital: <span> {country?.capital}</span></p>
                         </div>
-                        <div>
+                        <div className='info-b'>
                             <p> Top Level Domain: <span>{country?.tld}</span></p>
                             <p> Currencies: <span>{getCurrency()}</span></p>
                             <p> Languages <span>{getLanguages()}</span></p>
