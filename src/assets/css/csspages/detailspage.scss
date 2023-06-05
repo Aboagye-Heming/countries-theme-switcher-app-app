@@ -14,9 +14,11 @@
   width: 560px;
   height: 400px;
   margin-top: 80px;
+  object-fit: cover;
+  object-position: center;
 }
 
-h3 {
+.details-main-info h3 {
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: 800;
@@ -46,21 +48,38 @@ h3 {
   font-weight: 300;
 }
 
-.border {
-  font-family: "Nunito Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  color: #111517;
-  width: 452px;
+.border-wrapper {
+  display: flex;
+  .label {
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    white-space: nowrap;
+    margin-right: 15px;
+  }
 }
 
-.border span {
-  font-family: "Nunito Sans";
-  font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 19px;
-  color: #111517;
+.borders {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  .border {
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
+    border-radius: 2px;
+    padding: 5px 10px;
+    min-width: 96px;
+    p {
+      font-family: "Nunito Sans";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 19px;
+      color: #111517;
+      text-align: center;
+      margin: 0;
+    }
+  }
 }

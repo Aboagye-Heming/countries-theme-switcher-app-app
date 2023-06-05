@@ -14,7 +14,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/details" element={<DetailsPage />} />
+          <Route path="/:code/details" element={<DetailsPage />} />
         </Routes>
       </main>
     </BrowserRouter>

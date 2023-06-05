@@ -1,37 +1,64 @@
 
+import { useEffect, useState } from 'react'
 import backbtn from '../assets/images/Shape.svg'
-import flag from "../assets/images/1280px-Flag_of_Germany.svg.png"
 import "../assets/css/csspages/detailspage.scss"
+import { Country } from '../types'
+import { useParams } from 'react-router-dom'
+
 
 
 function DetailsPage() {
+    const [country, setCountry] = useState<Country>()
+
+    const { code } = useParams()
+
+
+    useEffect(() => {
+        fetch(`https://restcountries.com/v3.1/alpha/${code}`).then((response) => {
+            response.json().then((data) => {
+                setCountry({
+                    ...data[0],
+                    currencies: data[0].currencies ? Object.values(data[0].currencies) : [],
+                    languages: data[0].languages ? Object.values(data[0].languages) : []
+                })
+            })
+        })
+    }, [code])
+
+    const getCurrency = (): any => country?.currencies?.[0]?.name
+    const getLanguages = () => country?.languages?.[0] || ""
     return (
         <div className='container details'>
             <div className="back">
                 <img src={backbtn} alt="" />
                 <p>Back</p>
             </div>
-
             <div className='details-content'>
-                <img src={flag} alt="" />
+                <img src={country?.flags?.png} alt={country?.flags?.alt} />
                 <div className='details-main-info'>
-                    <h3>Belgium</h3>
+                    <h3>{country?.name?.official}</h3>
                     <div className='details-info'>
                         <div>
-                            <p>Native Name: <span>België</span> </p>
-                            <p>Population: <span> 11,319,511</span></p>
-                            <p>Region: <span> Europe</span></p>
-                            <p>Sub Region: <span> Western Europe</span></p>
-                            <p>Capital: <span> Brussels</span></p>
+                            <p>Native Name: <span>{country?.name?.nativeName?.ell?.official}</span> </p>
+                            <p>Population: <span> {country?.population}</span></p>
+                            <p>Region: <span>{country?.region}</span></p>
+                            <p>Sub Region: <span> {country?.subregion}</span></p>
+                            <p>Capital: <span> {country?.capital}</span></p>
                         </div>
                         <div>
-                            <p> Top Level Domain: <span> .be</span></p>
-                            <p> Currencies: <span> Euro</span></p>
-                            <p> Languages <span>Dutch, French, Germane</span></p>
+                            <p> Top Level Domain: <span>{country?.tld}</span></p>
+                            <p> Currencies: <span>{getCurrency()}</span></p>
+                            <p> Languages <span>{getLanguages()}</span></p>
                         </div>
                     </div>
-                    <div className="border">
-                        <p>Border Countries: <span>France span Germany Netherlands</span> </p></div>
+                    <div className='border-wrapper'>
+                        <p className="label">Border Countries: </p>
+                        <div className="borders">
+                            {country?.borders?.map((border) => (
+                                <div className='border'><p>{border}</p></div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

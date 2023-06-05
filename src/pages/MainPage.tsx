@@ -23,8 +23,8 @@ function MainPage() {
     }, [])
 
     return (
-        <div className='hero container'>
-            <div className="App">
+        <div className='hero'>
+            <div className="app container">
                 <div className='filter'>
                     <div className="search">
                         <img src={search} alt="" />

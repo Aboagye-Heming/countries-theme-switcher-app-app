@@ -19,17 +19,6 @@ export interface CountryFlag {
   alt: string;
 }
 
-export interface CountryCurrency {
-  BRL: {
-    name: string;
-    symbol: string;
-  };
-}
-
-export interface CountryLanguages {
-  por: string;
-}
-
 export interface Country {
   name: CountryName;
   population: number;
@@ -37,8 +26,9 @@ export interface Country {
   subregion: string;
   capital: string[];
   flags: CountryFlag;
-  currency: CountryCurrency;
-  languages: CountryLanguages;
-  borders: string[];
+  currencies: any;
+  languages: any;
+  borders?: string[];
   tld: string[];
+  cca2: string;
 }

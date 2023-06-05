@@ -5,7 +5,7 @@ import darkbtn from '../assets/images/Group3.svg'
 
 function NavBar() {
     return (
-        <div className="nav-main">
+        <div className="nav-main ">
             <div className="nav-bar container">
                 <h3>Where in the world?</h3>
                 <div className='dark-mode'>
