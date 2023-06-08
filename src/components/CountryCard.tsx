@@ -6,7 +6,6 @@ interface CountryCardProps {
   country: Country
 }
 export default function CountryCard({ country }: CountryCardProps) {
-  console.log(country)
   return (
     <Link to={`/${country.cca2}/details`}>
       <div className="country">

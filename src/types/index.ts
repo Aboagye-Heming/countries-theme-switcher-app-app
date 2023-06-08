@@ -31,4 +31,5 @@ export interface Country {
   borders?: string[];
   tld: string[];
   cca2: string;
+  continents: string[];
 }

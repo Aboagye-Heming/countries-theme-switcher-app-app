@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 
 
 
+
 function DetailsPage() {
     const [country, setCountry] = useState<Country>()
 
@@ -29,10 +30,10 @@ function DetailsPage() {
     const getLanguages = () => country?.languages?.[0] || ""
     return (
         <div className='container details'>
-            <div className="back">
-                <img src={backbtn} alt="" />
-                <p>Back</p>
-            </div>
+                <div className="back">
+                    <img src={backbtn} alt="" />
+                    <p>Back</p>
+                </div>
             <div className='details-content'>
                 <img src={country?.flags?.png} alt={country?.flags?.alt} />
                 <div className='details-main-info'>

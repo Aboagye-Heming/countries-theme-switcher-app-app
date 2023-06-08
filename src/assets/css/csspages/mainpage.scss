@@ -8,7 +8,7 @@
 .filter {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-top: 24px;
 }
 
@@ -25,13 +25,14 @@
   font-family: "Nunito Sans";
   font-size: 14px;
   line-height: 20px;
-  color: #C4C4C4;
+  color: #c4c4c4;
   text-decoration: none;
+  outline: none;
 }
 
 .filter-drop {
   width: 200px;
-  z-index: 70;
+  position: relative;
 }
 
 .filter-label {
@@ -48,6 +49,7 @@
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
   border-radius: 5px;
   padding: 2px 18px 2px 24px;
+  cursor: pointer;
 }
 
 .continents {
@@ -60,13 +62,24 @@
   background: #ffffff;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
   border-radius: 5px;
-  padding-left: 24px;
-  padding-bottom: 4px;
+  padding: 16px;
+  display: none;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 56px;
+  flex-direction: column;
+  row-gap: 8px;
+  &.show {
+    display: flex;
+  }
+  p{
+    margin: 0px;
+    cursor: pointer;
+
+  }
 }
 
-.continents p {
-  margin-bottom: -5px;
-}
 
 h4 {
   font-family: "Nunito Sans";
@@ -81,21 +94,17 @@ h4 {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  column-gap: 75px;
-  justify-content: space-between;
-  margin-top: -130px;
+  column-gap: 90px;
+  // justify-content: space-between;
 }
 
 @media (max-width: 820px) {
   .search input[type="text"] {
-   
     font-size: 12px;
     line-height: 20px;
     padding: 14px 153px 14px 74px;
-    
-    
-    color: #C4C4C4;
-    
+
+    color: #c4c4c4;
 
     width: 343px;
     text-decoration: none;
