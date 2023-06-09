@@ -1,5 +1,10 @@
+@import "../theme-variable.scss";
+
 .hero {
-  background: #f2f2f2;
+  @include themify($themes) {
+    background: themed("colorBackground");
+  }
+  min-height: 100vh;
 }
 .app {
   padding-top: 80px;
@@ -14,10 +19,13 @@
 
 .search input[type="text"] {
   box-sizing: border-box;
-  background: #ffffff;
-  background-image: url(../../images/search.svg);
-  background-position: 32px 20px;
-  background-repeat: no-repeat;
+  @include themify($themes) {
+    background: themed("colorHeaderFooter");
+    color: themed("colorText");
+    background-image: themed("searchImage");
+    background-repeat: no-repeat;
+    background-position: 32px 20px;
+  }
   width: 480px;
   height: 56px;
   padding: 18px 230px 18px 74px;
@@ -25,9 +33,13 @@
   font-family: "Nunito Sans";
   font-size: 14px;
   line-height: 20px;
-  color: #c4c4c4;
   text-decoration: none;
   outline: none;
+  &::placeholder {
+    @include themify($themes) {
+      color: themed("colorText");
+    }
+  }
 }
 
 .filter-drop {
@@ -41,11 +53,13 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: #111517;
+  @include themify($themes) {
+    color: themed("colorText");
+    background: themed("colorHeaderFooter");
+  }
   display: flex;
   column-gap: 48px;
   margin-bottom: -10px;
-  background: #ffffff;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
   border-radius: 5px;
   padding: 2px 18px 2px 24px;
@@ -58,8 +72,10 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: #111517;
-  background: #ffffff;
+  @include themify($themes) {
+    background: themed("colorHeaderFooter");
+    color: themed("colorText");
+  }
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
   border-radius: 5px;
   padding: 16px;
@@ -73,13 +89,11 @@
   &.show {
     display: flex;
   }
-  p{
+  p {
     margin: 0px;
     cursor: pointer;
-
   }
 }
-
 
 h4 {
   font-family: "Nunito Sans";

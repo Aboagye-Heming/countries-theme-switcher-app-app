@@ -1,15 +1,19 @@
+import { useContext } from "react";
 import { Country } from "../types";
 import CountryCard from "../components/CountryCard";
 import expand from "../assets/images/expand-more.svg";
-import search from "../assets/images/search.svg";
+import chevronDark from "../assets/images/chevronDark.svg"
 import { useState, useEffect } from "react";
 import "../assets/css/csspages/mainpage.scss";
+import { ThemeContext } from "../context/themeContext";
+
 
 function MainPage() {
     const [countries, setCountries] = useState<Country[]>([]);
     const [search, setSearch] = useState<string>("");
     const [show, setShow] = useState<boolean>(false);
     const [selectedContinent, setSelectedContinent] = useState<string>("")
+    const { theme, setTheme } = useContext(ThemeContext);
 
 
     const continents = ["Africa", "America", "Asia", "Europe", "Oceania"]
@@ -52,7 +56,7 @@ function MainPage() {
                     <div className="filter-drop">
                         <div className="filter-label" onClick={() => setShow(!show)}>
                             <p>Filter by Region </p>
-                            <img src={expand} alt="" />
+                            <img src={theme === "light" ? expand : chevronDark} alt="" />
                         </div>
                         <div className={`continents ${show ? "show" : ""}`}>
                             {continents.map((continent, index) => (

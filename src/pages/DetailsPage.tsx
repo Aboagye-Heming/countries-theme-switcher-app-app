@@ -3,9 +3,7 @@ import { useEffect, useState } from 'react'
 import backbtn from '../assets/images/Shape.svg'
 import "../assets/css/csspages/detailspage.scss"
 import { Country } from '../types'
-import { useParams } from 'react-router-dom'
-
-
+import { useParams, Link} from 'react-router-dom'
 
 
 function DetailsPage() {
@@ -56,7 +54,7 @@ function DetailsPage() {
                         <p className="label">Border Countries: </p>
                         <div className="borders">
                             {country?.borders?.map((border) => (
-                                <div className='border'><p>{border}</p></div>
+                                <Link to={`/${border}/details`} className='border'><p>{border}</p></Link>
                             ))}
                         </div>
                     </div>
