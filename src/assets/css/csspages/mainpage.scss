@@ -7,7 +7,7 @@
   min-height: 100vh;
 }
 .app {
-  padding-top: 80px;
+  padding-top: 128px;
 }
 
 .filter {
@@ -15,6 +15,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 24px;
+  column-gap: 20px;
 }
 
 .search input[type="text"] {
@@ -112,26 +113,26 @@ h4 {
   // justify-content: space-between;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 540px) {
   .search input[type="text"] {
     font-size: 12px;
-    line-height: 20px;
-    padding: 14px 153px 14px 74px;
-
+    padding-top: 14px;
+    padding-bottom: 14px;
     color: #c4c4c4;
-
-    width: 343px;
+    max-width: 943px;
     text-decoration: none;
+    width: 100%;
   }
   .filter {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-top: 24px;
   }
   .search {
-    margin-top: 24px;
-    margin-bottom: 40px;
-    width: 6px;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
   .filter-drop {
     width: 200px;
@@ -139,7 +140,7 @@ h4 {
   }
 
   .countries {
-    margin-top: -186px;
     justify-content: center;
+    margin-top: -10px;
   }
 }
