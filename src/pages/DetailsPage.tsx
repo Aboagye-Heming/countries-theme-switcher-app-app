@@ -8,7 +8,7 @@ import { ThemeContext } from "../../src/context/themeContext";
 
 function DetailsPage() {
   const [country, setCountry] = useState<Country>();
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   const { code } = useParams();
 
