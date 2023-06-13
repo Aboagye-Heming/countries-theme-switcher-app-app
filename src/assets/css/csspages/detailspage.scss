@@ -50,7 +50,9 @@
     object-position: center;
   }
 }
-
+.details-main-info {
+  height: 323px;
+}
 .details-main-info h3 {
   font-family: "Nunito Sans";
   font-style: normal;
@@ -61,10 +63,6 @@
     color: themed("colorText");
   }
   margin-bottom: 28px;
-}
-
-.details-main-info {
-  height: 323px;
 }
 
 .details-info {
@@ -78,7 +76,6 @@
   @include themify($themes) {
     color: themed("colorText");
   }
-  padding-left: 32px;
 }
 
 .details-info span {
@@ -130,7 +127,7 @@
 }
 
 @media (max-width: 820px) {
-  .details{
+  .details {
     height: 140vh;
   }
   .back {
