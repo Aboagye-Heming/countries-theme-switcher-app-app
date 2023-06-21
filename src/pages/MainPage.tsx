@@ -16,6 +16,7 @@ function MainPage() {
 
   const continents = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
+  // fetching for the Api
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all").then((response) => {
       response.json().then((data) => {
@@ -24,6 +25,8 @@ function MainPage() {
     });
   }, []);
 
+ 
+  // filtering for selected continents
   const getFilteredCountries = (): Country[] => {
     return countries.filter(
       (country) =>
@@ -32,6 +35,7 @@ function MainPage() {
     );
   };
 
+  // selected Continent
   const selectContinent = (continent: string) => {
     setSelectedContinent(continent);
     setShow(false);
@@ -55,7 +59,10 @@ function MainPage() {
               <p>Filter by Region </p>
               <img src={theme === "light" ? expand : chevronDark} alt="" />
             </div>
+            {/* shows continent dropdown */}
             <div className={`continents ${show ? "show" : ""}`}>
+              
+              {/* maps through the continents and listens to the event handler */}
               {continents.map((continent, index) => (
                 <p key={index} onClick={() => selectContinent(continent)}>
                   {continent}

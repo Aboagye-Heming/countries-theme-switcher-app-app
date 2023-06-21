@@ -12,6 +12,7 @@ function DetailsPage() {
 
   const { code } = useParams();
 
+  // fetching for the detailspage
   useEffect(() => {
     fetch(`https://restcountries.com/v3.1/alpha/${code}`).then((response) => {
       response.json().then((data) => {
@@ -42,8 +43,8 @@ function DetailsPage() {
             <div className="details-info">
               <div className="info-a">
                 <p>
-                  Native Name:{" "}
-                  <span>{country?.name?.nativeName?.ell?.official}</span>{" "}
+                  Native Name:
+                  <span>{country?.name?.nativeName?.ell?.official}</span>
                 </p>
                 <p>
                   Population: <span> {country?.population}</span>
@@ -60,15 +61,12 @@ function DetailsPage() {
               </div>
               <div className="info-b">
                 <p>
-                  {" "}
                   Top Level Domain: <span>{country?.tld}</span>
                 </p>
                 <p>
-                  {" "}
                   Currencies: <span>{getCurrency()}</span>
                 </p>
                 <p>
-                  {" "}
                   Languages <span>{getLanguages()}</span>
                 </p>
               </div>
