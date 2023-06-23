@@ -31,5 +31,11 @@ export interface Country {
   borders?: string[];
   tld: string[];
   cca2: string;
+  cca3: string;
   continents: string[];
 }
+
+export type CountryContextType = {
+  countries: Country[];
+  setCountries: (countries: Country[]) => void;
+};

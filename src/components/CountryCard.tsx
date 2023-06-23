@@ -7,7 +7,7 @@ interface CountryCardProps {
 }
 export default function CountryCard({ country }: CountryCardProps) {
   return (
-    <Link to={`/${country.cca2}/details`}>
+    <Link to={`/${country.cca3}/details`}>
       <div className="country">
         <img className="country__flag" src={country.flags.png} alt={country.flags.alt} />
         <div className="country__description">
